@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Store, Phone, Lock, ArrowRight, ArrowLeft } from 'lucide-react';
 import { API_BASE_URL } from '../lib/utils';
+import { saveUserToLocalStorage } from '../utils/userStorage';
 
 const CreateAccount = () => {
   const [shopName, setShopName] = useState('');
@@ -49,7 +50,7 @@ const CreateAccount = () => {
       const data = await response.json();
       if (response.ok && data.user) {
         // Store user details in localStorage
-        localStorage.setItem('user', JSON.stringify(data.user));
+        saveUserToLocalStorage(data.user);
         setIsLoading(false);
         navigate('/');
       } else {

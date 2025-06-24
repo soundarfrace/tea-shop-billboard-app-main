@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Lock, Phone, ArrowRight, MessageCircle } from 'lucide-react';
 import { API_BASE_URL } from '@/lib/utils';
+import { getUserFromLocalStorage, saveUserToLocalStorage } from '../utils/userStorage';
 
 const DEFAULT_PHONE = '1234';
 const DEFAULT_PASSWORD = '1234';
@@ -20,10 +21,9 @@ const Index = () => {
     setError('');
 
     // Check localStorage for user details first
-    const storedUserStr = localStorage.getItem('user');
-    if (storedUserStr) {
+    const storedUser = getUserFromLocalStorage();
+    if (storedUser) {
       try {
-        const storedUser = JSON.parse(storedUserStr);
         if (
           storedUser.mobile_num === phone &&
           storedUser.pass_word === password
@@ -75,6 +75,8 @@ const Index = () => {
               return;
             }
           }
+          // Save user to localStorage for future logins
+          saveUserToLocalStorage(user);
           sessionStorage.setItem('logged-in', 'true');
           sessionStorage.setItem('user', JSON.stringify(data.user));
           navigate('/billing');
@@ -178,9 +180,9 @@ const Index = () => {
           <div className="mt-8 text-center">
             <p className="text-gray-400 text-sm">Powered by Techies Magnifier Technologies</p>
             <div className="mt-4 flex items-center justify-center space-x-2 text-sm text-gray-500">
-              <span>Support: 9940292919</span>
+              <span>Support: +91 7397288500</span>
               <a 
-                href="https://wa.me/919940292919?text=Hello%2C%20I%20need%20support%20for%20the%20CalBus%20app." 
+                href="https://wa.me/917397288500?text=Hello%2C%20I%20need%20support%20for%20the%20CalBus%20app." 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="flex items-center"
