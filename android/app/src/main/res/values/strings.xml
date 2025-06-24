@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Tea Shop Billboard</string>
+    <string name="title_activity_main">Tea Shop Billboard</string>
+    <string name="package_name">com.teashop.billboard</string>
+    <string name="custom_url_scheme">com.teashop.billboard</string>
+</resources>
