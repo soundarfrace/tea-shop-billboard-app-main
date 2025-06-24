@@ -42,13 +42,13 @@ const CalculatorGrid = ({ onButtonClick, onOpenSaveDialog, currentTotal }: Calcu
         disabled={currentTotal === 0 || isNaN(currentTotal)}
         onClick={onOpenSaveDialog}
         className={`
-          ${currentTotal === 0 || isNaN(currentTotal) ? "opacity-50 cursor-not-allowed" : ""}
-          bg-primary text-primary-foreground hover:bg-primary/90
-          h-20 rounded-xl text-2xl font-semibold transition-all focus:outline-none shadow-sm active:scale-95 select-none flex items-center justify-center
-          border col-span-2
+          ${currentTotal === 0 || isNaN(currentTotal) ? "opacity-50 cursor-not-allowed text-gray-300" : "text-white"}
+          bg-[#27397C] hover:bg-[#1d285c]
+          h-20 rounded-full text-2xl font-semibold transition-all focus:outline-none shadow-sm active:scale-95 select-none flex items-center justify-center
+          col-span-2 px-12 border-0
         `}
       >
-        <span>Save</span>
+        <span>Sale</span>
       </button>
     </div>
   );

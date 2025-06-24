@@ -1,4 +1,3 @@
-
 import { Outlet, NavLink, useLocation } from "react-router-dom";
 import { Calculator, TrendingUp, Settings } from "lucide-react";
 import { AppTutorial } from "./AppTutorial";
@@ -8,7 +7,7 @@ const NavLayout = () => {
   const location = useLocation();
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50">
+    <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-background">
       <AppTutorial />
       
       <main className="flex-1 overflow-auto pb-16">
@@ -27,14 +26,14 @@ const NavLayout = () => {
         </div>
       </main>
       
-      <nav className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-200/50 shadow-lg z-50">
+      <nav className="fixed bottom-0 left-0 right-0 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md border-t border-gray-200/50 dark:border-zinc-700 shadow-lg z-50">
         <div className="max-w-md mx-auto px-6">
           <div className="flex justify-around py-2">
             <NavLink to="/" className={({ isActive }) => 
               `flex items-center justify-center p-2 rounded-xl transition-all duration-500 ease-out min-w-[48px] h-12 ${
                 isActive 
-                  ? 'text-blue-600 bg-blue-50 scale-105 shadow-md border border-blue-100' 
-                  : 'text-gray-400 hover:text-gray-600 hover:bg-gray-50/80 hover:scale-102'
+                  ? 'text-blue-600 bg-blue-50 dark:bg-blue-950/40 dark:text-blue-400 scale-105 shadow-md border border-blue-100 dark:border-blue-900' 
+                  : 'text-gray-400 dark:text-zinc-400 hover:text-gray-600 dark:hover:text-zinc-200 hover:bg-gray-50/80 dark:hover:bg-zinc-800/80 hover:scale-102'
               }`}
               end
             >
@@ -44,8 +43,8 @@ const NavLayout = () => {
             <NavLink to="/sales" className={({ isActive }) => 
               `flex items-center justify-center p-2 rounded-xl transition-all duration-500 ease-out min-w-[48px] h-12 ${
                 isActive 
-                  ? 'text-blue-600 bg-blue-50 scale-105 shadow-md border border-blue-100' 
-                  : 'text-gray-400 hover:text-gray-600 hover:bg-gray-50/80 hover:scale-102'
+                  ? 'text-blue-600 bg-blue-50 dark:bg-blue-950/40 dark:text-blue-400 scale-105 shadow-md border border-blue-100 dark:border-blue-900' 
+                  : 'text-gray-400 dark:text-zinc-400 hover:text-gray-600 dark:hover:text-zinc-200 hover:bg-gray-50/80 dark:hover:bg-zinc-800/80 hover:scale-102'
               }`}
             >
               <TrendingUp className="w-6 h-6 transition-transform duration-300" />
@@ -54,8 +53,8 @@ const NavLayout = () => {
             <NavLink to="/settings" className={({ isActive }) => 
               `flex items-center justify-center p-2 rounded-xl transition-all duration-500 ease-out min-w-[48px] h-12 ${
                 isActive 
-                  ? 'text-blue-600 bg-blue-50 scale-105 shadow-md border border-blue-100' 
-                  : 'text-gray-400 hover:text-gray-600 hover:bg-gray-50/80 hover:scale-102'
+                  ? 'text-blue-600 bg-blue-50 dark:bg-blue-950/40 dark:text-blue-400 scale-105 shadow-md border border-blue-100 dark:border-blue-900' 
+                  : 'text-gray-400 dark:text-zinc-400 hover:text-gray-600 dark:hover:text-zinc-200 hover:bg-gray-50/80 dark:hover:bg-zinc-800/80 hover:scale-102'
               }`}
             >
               <Settings className="w-6 h-6 transition-transform duration-300" />

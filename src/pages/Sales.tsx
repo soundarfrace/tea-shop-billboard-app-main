@@ -247,10 +247,10 @@ const Sales = () => {
   };
 
   return (
-    <div className="p-3 max-w-md mx-auto">
+    <div className="p-3 max-w-md mx-auto bg-background dark:bg-background">
       {/* Header */}
       <div className="flex justify-between items-center mb-3">
-        <h1 className="text-lg font-semibold dark:text-black">Sales & Orders</h1>
+        <h1 className="text-lg font-semibold text-foreground">Sales & Orders</h1>
         <div className="flex gap-2">
           <Button 
             variant="outline" 
@@ -294,16 +294,16 @@ const Sales = () => {
         onValueChange={setActiveTab}
         className="mb-4"
       >
-        <TabsList className="grid w-full grid-cols-2 h-12 p-1 bg-gray-100 rounded-xl">
+        <TabsList className="grid w-full grid-cols-2 h-12 p-1 bg-gray-100 dark:bg-zinc-800 rounded-xl">
           <TabsTrigger 
             value="sales"
-            className="relative rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200 data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm text-gray-600 hover:text-gray-900"
+            className="relative rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200 data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-900 data-[state=active]:text-gray-900 dark:data-[state=active]:text-white data-[state=active]:shadow-sm text-gray-600 dark:text-zinc-300 hover:text-gray-900 dark:hover:text-white"
           >
             <span className="relative z-10">Sales Report</span>
           </TabsTrigger>
           <TabsTrigger 
             value="orders"
-            className="relative rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200 data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm text-gray-600 hover:text-gray-900"
+            className="relative rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200 data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-900 data-[state=active]:text-gray-900 dark:data-[state=active]:text-white data-[state=active]:shadow-sm text-gray-600 dark:text-zinc-300 hover:text-gray-900 dark:hover:text-white"
           >
             <span className="relative z-10">Order History</span>
           </TabsTrigger>
@@ -316,8 +316,8 @@ const Sales = () => {
               Previous
             </Button>
             <div className="text-center">
-              <p className="text-xs text-gray-500 dark:text-black">Selected Period</p>
-              <p className="text-sm font-medium dark:text-black">{getDateDisplayText()}</p>
+              <p className="text-xs text-gray-500 dark:text-zinc-300">Selected Period</p>
+              <p className="text-sm font-medium dark:text-zinc-100">{getDateDisplayText()}</p>
             </div>
             <Button variant="outline" size="sm" onClick={goToToday} className="text-xs h-7 px-2">
               Today
@@ -326,24 +326,24 @@ const Sales = () => {
           
           {/* Sales Cards */}
           <div className="grid grid-cols-2 gap-3">
-            <Card className="bg-tshop-primary">
+            <Card className="bg-tshop-primary dark:bg-zinc-900">
               <CardHeader className="pb-1 pt-3 px-3">
-                <CardTitle className="text-sm text-black">Total Sales</CardTitle>
+                <CardTitle className="text-sm text-black dark:text-white">Total Sales</CardTitle>
               </CardHeader>
               <CardContent className="px-3 pb-3">
-                <div className="flex items-center text-lg font-bold text-black">
+                <div className="flex items-center text-lg font-bold text-black dark:text-white">
                   <IndianRupee className="mr-1 h-4 w-4" />
                   <span>{salesData.toFixed(2)}</span>
                 </div>
               </CardContent>
             </Card>
             
-            <Card>
+            <Card className="dark:bg-zinc-900">
               <CardHeader className="pb-1 pt-3 px-3">
-                <CardTitle className="text-sm">Total Orders</CardTitle>
+                <CardTitle className="text-sm dark:text-white">Total Orders</CardTitle>
               </CardHeader>
               <CardContent className="px-3 pb-3">
-                <div className="text-lg font-bold">
+                <div className="text-lg font-bold dark:text-white">
                   {ordersCount}
                 </div>
               </CardContent>
@@ -351,28 +351,28 @@ const Sales = () => {
           </div>
           
           {/* Paymode breakdown */}
-          <div className="rounded-xl bg-white shadow-xs p-3 mb-1">
+          <div className="rounded-xl bg-white dark:bg-zinc-900 shadow-xs p-3 mb-1">
             <div className="flex justify-between items-center mb-1">
-              <span className="text-xs font-semibold text-gray-600">Payment mode breakdown</span>
+              <span className="text-xs font-semibold text-gray-600 dark:text-zinc-300">Payment mode breakdown</span>
             </div>
             <div className="grid grid-cols-3 gap-2">
-              <div className="rounded-lg bg-emerald-50 px-2 py-2 flex flex-col items-center">
-                <span className="text-xs text-gray-600">Cash</span>
-                <span className="flex items-center gap-1 font-bold text-emerald-600 text-sm">
+              <div className="rounded-lg bg-emerald-50 dark:bg-emerald-900/30 px-2 py-2 flex flex-col items-center">
+                <span className="text-xs text-gray-600 dark:text-emerald-200">Cash</span>
+                <span className="flex items-center gap-1 font-bold text-emerald-600 dark:text-emerald-300 text-sm">
                   <IndianRupee className="w-3 h-3" />
                   {paymodeTotals.cash.toFixed(2)}
                 </span>
               </div>
-              <div className="rounded-lg bg-blue-50 px-2 py-2 flex flex-col items-center">
-                <span className="text-xs text-gray-600">Card</span>
-                <span className="flex items-center gap-1 font-bold text-blue-700 text-sm">
+              <div className="rounded-lg bg-blue-50 dark:bg-blue-900/30 px-2 py-2 flex flex-col items-center">
+                <span className="text-xs text-gray-600 dark:text-blue-200">Card</span>
+                <span className="flex items-center gap-1 font-bold text-blue-700 dark:text-blue-300 text-sm">
                   <IndianRupee className="w-3 h-3" />
                   {paymodeTotals.card.toFixed(2)}
                 </span>
               </div>
-              <div className="rounded-lg bg-violet-50 px-2 py-2 flex flex-col items-center">
-                <span className="text-xs text-gray-600">UPI</span>
-                <span className="flex items-center gap-1 font-bold text-violet-700 text-sm">
+              <div className="rounded-lg bg-violet-50 dark:bg-violet-900/30 px-2 py-2 flex flex-col items-center">
+                <span className="text-xs text-gray-600 dark:text-violet-200">UPI</span>
+                <span className="flex items-center gap-1 font-bold text-violet-700 dark:text-violet-300 text-sm">
                   <IndianRupee className="w-3 h-3" />
                   {paymodeTotals.upi.toFixed(2)}
                 </span>
@@ -406,21 +406,21 @@ const Sales = () => {
           
           {/* Sales Details */}
           {salesData > 0 ? (
-            <Card>
+            <Card className="dark:bg-zinc-900">
               <CardHeader className="pb-2 pt-3 px-3">
-                <CardTitle className="text-sm">Sales Details</CardTitle>
+                <CardTitle className="text-sm dark:text-white">Sales Details</CardTitle>
               </CardHeader>
               <CardContent className="px-3 pb-3">
                 <div className="space-y-1">
-                  <div className="flex justify-between py-1 border-b text-xs">
+                  <div className="flex justify-between py-1 border-b text-xs border-gray-200 dark:border-zinc-700">
                     <span>Period</span>
                     <span>{getDateDisplayText()}</span>
                   </div>
-                  <div className="flex justify-between py-1 border-b text-xs">
+                  <div className="flex justify-between py-1 border-b text-xs border-gray-200 dark:border-zinc-700">
                     <span>Orders</span>
                     <span>{ordersCount}</span>
                   </div>
-                  <div className="flex justify-between py-1 border-b text-xs">
+                  <div className="flex justify-between py-1 border-b text-xs border-gray-200 dark:border-zinc-700">
                     <span>Average Order Value</span>
                     <div className="flex items-center">
                       <IndianRupee className="mr-1 h-3 w-3" />
@@ -457,20 +457,20 @@ const Sales = () => {
           {filteredBills.length > 0 ? (
             <div className="space-y-2">
               {filteredBills.map((bill) => (
-                <Card key={bill.id} className="overflow-hidden">
+                <Card key={bill.id} className="overflow-hidden dark:bg-zinc-900">
                   <div className="px-3 py-2 flex justify-between items-center">
                     <div>
-                      <p className="text-sm font-medium">Order #{bill.id}</p>
-                      <p className="text-xs text-gray-500">{formatDate(bill.date)}</p>
+                      <p className="text-sm font-medium dark:text-white">Order #{bill.id}</p>
+                      <p className="text-xs text-gray-500 dark:text-zinc-300">{formatDate(bill.date)}</p>
                       {bill.paymentMode && (
-                        <p className="text-xs text-gray-400 capitalize mt-1">
+                        <p className="text-xs text-gray-400 dark:text-zinc-400 capitalize mt-1">
                           {bill.paymentMode}
                         </p>
                       )}
                     </div>
                     <div className="flex items-center">
                       <IndianRupee className="w-3 h-3 mr-1" />
-                      <span className="text-sm font-semibold">
+                      <span className="text-sm font-semibold dark:text-white">
                         {typeof bill.amount === 'number' ? bill.amount.toFixed(2) : '0.00'}
                       </span>
                     </div>
