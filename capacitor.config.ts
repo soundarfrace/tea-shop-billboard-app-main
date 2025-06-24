@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.teashop.billboard',
-  appName: 'Tea Shop Billboard',
+  appId: 'com.CalBus',
+  appName: 'CalBus',
   webDir: 'dist',
   server: {
     androidScheme: 'http'

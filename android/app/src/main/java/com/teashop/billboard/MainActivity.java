@@ -1,4 +1,4 @@
-package com.teashop.billboard;
+package com.CalBus.billboard;
 
 import com.getcapacitor.BridgeActivity;
 

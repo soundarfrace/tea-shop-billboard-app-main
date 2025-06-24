@@ -58,6 +58,15 @@ const Billing = () => {
         const afterCursor = displayValue.slice(selectionStart).split(/[\+\-\u00d7\u00f7]/)[0] || '';
         if ((part + afterCursor).includes('.')) return;
       }
+
+      // If inserting a number after a closing parenthesis or percent, insert a * first
+      if (
+        btn.variant === 'number' &&
+        selectionStart > 0 &&
+        (displayValue[selectionStart - 1] === ')' || displayValue[selectionStart - 1] === '%')
+      ) {
+        insertValue = '*' + value;
+      }
       
       let newDisplayValue = displayValue.slice(0, selectionStart) + insertValue + displayValue.slice(selectionEnd);
       if (displayValue === '0' && value !== '.') {
@@ -96,7 +105,7 @@ const Billing = () => {
         backspace();
         break;
       case 'percent':
-        toast.info("This function not supported yet.", { duration: 1200 });
+        insert('%');
         break;
       case '.':
       case '+':

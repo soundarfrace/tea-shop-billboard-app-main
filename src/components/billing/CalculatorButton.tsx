@@ -25,7 +25,7 @@ const CalculatorButton = ({ label, value, variant, span, onClick }: CalculatorBu
         shadow-sm
         active:scale-95
         select-none
-        border
+        border border-gray-300
         w-full
         ${span ? `col-span-${span}` : ''}
       `}

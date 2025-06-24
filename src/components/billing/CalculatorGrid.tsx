@@ -12,8 +12,8 @@ const CalculatorGrid = ({ onButtonClick, onOpenSaveDialog, currentTotal }: Calcu
     <div className="grid grid-cols-4 grid-rows-5 gap-3 w-full max-w-sm mx-auto">
       {/* Row 1 */}
       <CalculatorButton label="AC" value="clear" variant="primary" onClick={onButtonClick} />
-      <CalculatorButton label={<Delete className="w-6 h-6 mx-auto" />} value="backspace" variant="operator" onClick={onButtonClick} />
-      <CalculatorButton label="%" value="percent" variant="operator" onClick={onButtonClick} />
+      <CalculatorButton label={<Delete className="w-6 h-6 mx-auto" />} value="backspace" variant="secondary" onClick={onButtonClick} />
+      <CalculatorButton label="%" value="percent" variant="secondary" onClick={onButtonClick} />
       <CalculatorButton label="÷" value="/" variant="operator" onClick={onButtonClick} />
 
       {/* Row 2 */}

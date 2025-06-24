@@ -10,6 +10,7 @@ export function parseAndSum(expr: string): number {
     let cleanExpr = expr
       .replace(/×/g, '*')
       .replace(/÷/g, '/')
+      .replace(/(\d+(?:\.\d+)?)%(?![\d.])/g, '($1/100)')
       .trim();
     
     // Remove trailing operators
@@ -42,7 +43,7 @@ export function getButtonClasses(variant: string): string {
     case 'primary':
       return "bg-primary text-primary-foreground hover:bg-primary/90";
     case 'operator':
-      return "bg-secondary text-secondary-foreground hover:bg-secondary/80";
+      return "bg-[#FF9800] text-white hover:bg-[#fb8c00]";
     case 'number':
       return "bg-secondary text-secondary-foreground hover:bg-secondary/80";
     case 'scientific':
